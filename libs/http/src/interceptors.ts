@@ -6,16 +6,20 @@ import {
   HttpInterceptor,
   HttpRequest
 } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
+import { Ienv } from '@xyz/interfaces';
 import {  HttpManagerService } from '@xyz/utils';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
+import { log } from 'x-utils-es';
 // import {log, onerror} from 'x-utils-es'
 
 
 @Injectable()
 export class XYZHttpInterceptor implements HttpInterceptor {
-  constructor(private httpManager: HttpManagerService) {}
+  constructor(
+    @Inject('ENVIRONMENT') protected ENVIRONMENT: Ienv,
+    private httpManager: HttpManagerService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<any> {
     const headers = {
@@ -23,8 +27,13 @@ export class XYZHttpInterceptor implements HttpInterceptor {
       'Access-Control-Allow-Methods': 'GET, OPTIONS',
       'Access-Control-Allow-Origin': '*'
     };
+    // prefix url base
+    // request.url = this.ENVIRONMENT.apiBaseUrl + request.url
+    // log('calling request.url', request.url)
 
+    // apiBaseUrl
     request = request.clone({
+      // prefix url base
       url: request.url,
       headers: new HttpHeaders({ ...headers })
     });

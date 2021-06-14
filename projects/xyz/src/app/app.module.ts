@@ -8,12 +8,12 @@ import { ServiceWorkerModule } from '@angular/service-worker'
 import { environment } from '../environments/environment'
 import { AppRoutingModule } from './app.routing.module'
 import { debug, disableLogging, sq } from 'x-utils-es'
-import { ActComponentsModule } from '@xyz/components'
+import { XYZComponentsModule } from '@xyz/components'
 import { ThemeModule } from '@xyz/theme'
 import { MaterialModule } from '@xyz/material'
 import { XYZBackendProvider } from '@xyz/http'
-
-
+import { InterceptorModule } from '@xyz/utils'
+import { NxModule } from '@nrwl/nx';
 // disable console.log
 if (environment.production === true) {
     debug(`-- Using Angular 11.x --`)
@@ -34,26 +34,29 @@ if (environment.production === true) {
             // or after 30 seconds (whichever comes first).
             registrationStrategy: 'registerWhenStable:30000',
         }),
+        NxModule.forRoot(),
+        InterceptorModule.forRoot(environment.apiBaseUrl),
         MaterialModule,
         ThemeModule,
         BrowserAnimationsModule,
         HttpClientModule,
-        ActComponentsModule,
+        XYZComponentsModule,
     ],
     providers: [
-      XYZBackendProvider,
+       XYZBackendProvider,
         {
             provide: 'ENVIRONMENT_PRODUCTION',
-            useValue: environment.production
-          },
-          {
+            useValue: environment.production,
+        },
+        {
             provide: 'ENVIRONMENT',
-            useValue: environment
-          },
-          {
+            useValue: environment,
+        },
+        {
             provide: 'API_BASE_URL',
-            useValue: environment.apiBaseUrl
-          },
+            useValue: environment.apiBaseUrl,
+        },
+
     ],
     bootstrap: [AppComponent],
 })

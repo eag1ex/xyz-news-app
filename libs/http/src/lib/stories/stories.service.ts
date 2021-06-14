@@ -30,14 +30,13 @@ export class StoriesHttpService {
       this.baseUrl = this.ENVIRONMENT.apiBaseUrl
     }
 
-    stories(params: IParams): Observable<IStories> {
+    private stories(params: IParams): Observable<IStories> {
         if (isEmpty(params)) return throwError('params not provided')
 
-        const sufix = new URL('/' + params.type)
-        if (params.paged) sufix.searchParams.set('paged', params.paged as any)
-        const url = params.toString()
-        log(`-- calling ${url}`)
-        return this.http.get<any>(`${url}`)
+        let sufix = `${this.baseUrl}/stories/${ params.type}`
+        if (params.paged) sufix = `${sufix}?paged=${params.paged}`
+        log(`-- calling ${sufix}`)
+        return this.http.get<any>(`${sufix}`)
     }
 
     get stories$(): Observable<IStories> {

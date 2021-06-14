@@ -31,14 +31,14 @@ export class HttpManagerService {
 
   public getErrors = () => this.errors.asObservable();
 
-  operators() {
+  operators(): any{
     return pipe(
       tap((e: HttpEvent<any>) => e.type || this._active$.up()),
       finalize(() => this._active$.down())
     );
   }
 
-  private _watchLazyLoad() {
+  private _watchLazyLoad(): void {
     this._router.events.subscribe(event => {
       if (event instanceof RouteConfigLoadStart) {
         this._active$.up();

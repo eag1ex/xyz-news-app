@@ -9,4 +9,4 @@ import { LayoutComponent } from './layout/layout.component';
     LayoutComponent
   ]
 })
-export class ActComponentsModule { }
+export class XYZComponentsModule { }

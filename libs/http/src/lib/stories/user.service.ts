@@ -21,10 +21,9 @@ export class UserHttpService {
 
     user(id: string): Observable<IUser> {
         if (!id) return throwError('id not provided')
-        const sufix = new URL('/user/' + id)
-        const url = sufix.toString()
-        log(`-- calling ${url}`)
-        return this.http.get<any>(`${url}`)
+        const sufix = `${this.baseUrl}/user/${id}`
+        log(`-- calling ${sufix}`)
+        return this.http.get<any>(`${sufix}`)
     }
 
     get user$(): Observable<IUser> {
