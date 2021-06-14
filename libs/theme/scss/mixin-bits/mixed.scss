@@ -1,0 +1,19 @@
+@mixin box-shadow(
+  $top: 0,
+  $left: 0,
+  $blur: 0,
+  $size: 0,
+  $color: rgba(0, 0, 0.2)
+) {
+  -webkit-box-shadow: $top $left $blur $size $color;
+  -moz-box-shadow: $top $left $blur $size $color;
+  box-shadow: $top $left $blur $size $color;
+}
+
+@mixin font-size($size, $important: "") {
+  @if ($important == "!") {
+    font-size: $size + em !important;
+  } @else {
+    font-size: $size + em;
+  }
+}

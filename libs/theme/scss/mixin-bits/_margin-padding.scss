@@ -1,0 +1,125 @@
+// source https://gist.github.com/doughamlin/7103259/
+@mixin margin($margin) {
+  @if length($margin) < 0 {
+    margin: $margin + px;
+  }
+
+  @if length($margin) == 1 {
+    margin: $margin + px;
+    margin: $margin/10 + rem;
+  }
+  @if length($margin) == 2 {
+    margin: nth($margin, 1) + px nth($margin, 2) + px;
+    margin: nth($margin, 1) * 0.1 + rem nth($margin, 2) * 0.1 + rem;
+  }
+  @if length($margin) == 3 {
+    margin: nth($margin, 1) + px nth($margin, 2) + px nth($margin, 3) + px;
+    margin: nth($margin, 1) *
+      0.1 +
+      rem
+      nth($margin, 2) *
+      0.1 +
+      rem
+      nth($margin, 3) *
+      0.1 +
+      rem;
+  }
+  @if length($margin) == 4 {
+    margin: nth($margin, 1) +
+      px
+      nth($margin, 2) +
+      px
+      nth($margin, 3) +
+      px
+      nth($margin, 4) +
+      px;
+    margin: nth($margin, 1) *
+      0.1 +
+      rem
+      nth($margin, 2) *
+      0.1 +
+      rem
+      nth($margin, 3) *
+      0.1 +
+      rem
+      nth($margin, 4) *
+      0.1 +
+      rem;
+  }
+}
+@mixin margin-top($margin) {
+  margin-top: $margin + px;
+  margin-top: $margin/10 + rem;
+}
+@mixin margin-right($margin) {
+  margin-right: $margin + px;
+  margin-right: $margin/10 + rem;
+}
+@mixin margin-bottom($margin) {
+  margin-bottom: $margin + px;
+  margin-bottom: $margin/10 + rem;
+}
+@mixin margin-left($margin) {
+  margin-left: $margin + px;
+  margin-left: $margin/10 + rem;
+}
+@mixin padding($padding) {
+  @if length($padding) == 1 {
+    padding: $padding + px;
+    padding: $padding/10 + rem;
+  }
+  @if length($padding) == 2 {
+    padding: nth($padding, 1) + px nth($padding, 2) + px;
+    padding: nth($padding, 1) * 0.1 + rem nth($padding, 2) * 0.1 + rem;
+  }
+  @if length($padding) == 3 {
+    padding: nth($padding, 1) + px nth($padding, 2) + px nth($padding, 3) + px;
+    padding: nth($padding, 1) *
+      0.1 +
+      rem
+      nth($padding, 2) *
+      0.1 +
+      rem
+      nth($padding, 3) *
+      0.1 +
+      rem;
+  }
+  @if length($padding) == 4 {
+    padding: nth($padding, 1) +
+      px
+      nth($padding, 2) +
+      px
+      nth($padding, 3) +
+      px
+      nth($padding, 4) +
+      px;
+    padding: nth($padding, 1) *
+      0.1 +
+      rem
+      nth($padding, 2) *
+      0.1 +
+      rem
+      nth($padding, 3) *
+      0.1 +
+      rem
+      nth($padding, 4) *
+      0.1 +
+      rem;
+  }
+}
+@mixin padding-top($padding) {
+  padding-top: $padding + px;
+  padding-top: $padding/10 + rem;
+}
+@mixin padding-right($padding) {
+  padding-right: $padding + px;
+  padding-right: $padding/10 + rem;
+}
+@mixin padding-bottom($padding) {
+  padding-bottom: $padding + px;
+  padding-bottom: $padding/10 + rem;
+}
+@mixin padding-left($padding) {
+  padding-left: $padding + px;
+  padding-left: $padding/10 + rem;
+}

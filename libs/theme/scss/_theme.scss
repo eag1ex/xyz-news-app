@@ -1,0 +1,98 @@
+@import "~@angular/material/theming";
+// using https://fonts.googleapis.com/icon?family=Material+Icons
+// @import "~material-design-icons/iconfont/material-icons.css"; // asset too large
+/* Color Preset */
+$md-primary: (
+  400: $primary,
+  500: $primary,
+  600: $primary,
+  contrast: (
+    400: #fff,
+    500: #fff,
+    600: #fff,
+  ),
+);
+$md-accent: (
+  50: #e0eff9,
+  100: #b3d7ef,
+  200: #80bce4,
+  300: #4da1d9,
+  400: #268cd1,
+  500: #2d4544,
+  600: #0070c3,
+  700: #0065bc,
+  800: #005bb5,
+  900: #0048a9,
+  A100: #d3e2ff,
+  A200: #a0c2ff,
+  A400: #6da1ff,
+  A700: #5390ff,
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #fff,
+    500: #fff,
+    600: #fff,
+    700: #fff,
+    800: #fff,
+    900: #fff,
+    A100: #000,
+    A200: #000,
+    A400: #000,
+    A700: #000,
+  ),
+);
+
+$md-warn: (
+  50: #f9e1e4,
+  100: #f1b3bb,
+  200: #e8818d,
+  300: #de4e5f,
+  400: #d7283d,
+  500: #7cfffc,
+  600: #020202,
+  700: #c40114,
+  800: #be0110,
+  900: #b30108,
+  A100: #ffdcdd,
+  A200: #ffa9aa,
+  A400: #ff7678,
+  A700: #ff5d5f,
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #fff,
+    400: #fff,
+    500: #fff,
+    600: #fff,
+    700: #fff,
+    800: #fff,
+    900: #fff,
+    A100: #000,
+    A200: #000,
+    A400: #000,
+    A700: #000,
+  ),
+);
+@include mat-core();
+/* Typography */
+$custom-typography: mat-typography-config(
+  $font-family: $font-family,
+);
+$custom-theme-primary: mat-palette($md-primary, 400, 500, 600);
+$custom-theme-accent: mat-palette($md-accent, 100, A100);
+$custom-theme-warn: mat-palette($md-warn, 100, 700);
+$custom-theme: mat-light-theme(
+  $custom-theme-primary,
+  $custom-theme-accent,
+  $custom-theme-warn
+);
+@include mat-base-typography($custom-typography);
+// Override typography for a specific Angular Material components.
+@include mat-checkbox-typography($custom-typography);
+// Override typography for all Angular Material, including mat-base-typography and all components.
+@include angular-material-typography($custom-typography);
+@include angular-material-theme($custom-theme);

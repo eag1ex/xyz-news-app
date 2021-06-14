@@ -1,0 +1,24 @@
+/* stylelint-disable */
+
+$font-family: Calibri, "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif;
+
+$primary: $black;
+$secondary: $green;
+$danger: $red;
+$dark: $dark1;
+$warning: $orange;
+$muted: $grey2;
+
+$body-color: $black;
+$white: $white1;
+$body-bg: $grey1;
+
+$theme-colors: (
+  "primary": $primary,
+  "dark": $black,
+  "white": $white,
+  "muted": $muted,
+  "secondary": $secondary,
+);
+
+$default-border-radius: 2px;

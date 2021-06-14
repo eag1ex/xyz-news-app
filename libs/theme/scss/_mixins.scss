@@ -1,0 +1,12 @@
+@import './mixin-bits/margin-padding';
+@import './mixin-bits/mixed';
+@import './mixin-bits/radius';
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
