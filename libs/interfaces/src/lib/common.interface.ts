@@ -10,3 +10,12 @@ export interface Ienv {
         cacheLocation?: string
     }
 }
+
+export type TStories = 'top' | 'best' | 'new'
+export interface IRouteParams{
+  story?: TStories
+}
+export interface ITooltipItem{
+  value: string;
+  name: string
+}

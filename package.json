@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve xyz --port 4444 --proxy-config ./proxy/xyz-local-proxy.json",
+    "start": "ng serve xyz --proxy-config ./proxy/xyz-local-proxy.json --disable-host-check --port 4444",
     "build:prod": "npm run build:projects && ng build xyz --prod --aot --configuration=production --base-href /",
     "build": "ng build",
     "test": "ng test",

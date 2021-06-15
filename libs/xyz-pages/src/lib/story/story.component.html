@@ -1,0 +1,31 @@
+<section>
+    <div class="row">
+        <div class="col">
+            <mat-selection-list *ngIf="storyData" #current [multiple]="false">
+                <mat-list-option *ngFor="let story of storyData.response; let inx = index" [value]="story">
+                    <div class="d-flex flex-row mb-3">
+                        <div class="nr mr-2 d-flex flex-row">
+                            <div class="text">({{ inx + 1 }}).</div>
+                            <div class="show-detail" (click)="showDetail()">
+                                <mat-icon aria-hidden="false">expand_less</mat-icon>
+                            </div>
+                        </div>
+
+                        <div class="story-detail mx-2">
+                            <div class="d-flex flex-column">
+                                <div [innerHTML]="story.title"></div>
+                                <small>small text</small>
+                            </div>
+                        </div>
+                        <div class="story-url ml-2">
+                            <small> some url: </small>
+                        </div>
+                    </div>
+                </mat-list-option>
+            </mat-selection-list>
+
+            <mat-spinner *ngIf="!storyData" diameter="60" class="m-auto" color="accent"></mat-spinner>
+        </div>
+        <!-- <p>Option selected: {{ current.selectedOptions.selected[0]?.value }}</p> -->
+    </div>
+</section>

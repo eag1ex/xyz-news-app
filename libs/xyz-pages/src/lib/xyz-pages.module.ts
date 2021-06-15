@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BypartPagesRoutingModule } from './act-pages.module.routing';
+import { BypartPagesRoutingModule } from './xyz-pages.module.routing';
 
 
 @NgModule({
@@ -11,6 +11,7 @@ import { BypartPagesRoutingModule } from './act-pages.module.routing';
     BypartPagesRoutingModule
   ],
   exports: [
+
   ]
 })
 export class ActPagesModule { }

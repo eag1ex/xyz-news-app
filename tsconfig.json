@@ -49,6 +49,9 @@
       "@xyz/http": [
         "libs/http/src/public-api.ts"
       ],
+      "@xyz/data": [
+        "libs/data/src/public-api.ts"
+      ]
     }
   },
   "angularCompilerOptions": {

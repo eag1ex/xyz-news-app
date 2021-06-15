@@ -1,24 +1,24 @@
 /* stylelint-disable */
 
-$font-family: Calibri, "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif;
+$font-family: 'museo300', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
 
 $primary: $black;
-$secondary: $green;
-$danger: $red;
-$dark: $dark1;
-$warning: $orange;
-$muted: $grey2;
+$secondary: $orange;
+$danger: #c1272d;
+$dark: #323232;
+$warning: #f9c57d;
+$muted: #999999;
 
 $body-color: $black;
-$white: $white1;
-$body-bg: $grey1;
+$white: #f0f0f0;
+$body-bg: $white;
 
 $theme-colors: (
-  "primary": $primary,
-  "dark": $black,
-  "white": $white,
-  "muted": $muted,
-  "secondary": $secondary,
+    'primary': $primary,
+    'dark': $black,
+    'white': $white,
+    'muted': $muted,
+    'secondary': $secondary,
 );
 
 $default-border-radius: 2px;

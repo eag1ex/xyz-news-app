@@ -2,4 +2,4 @@
  * Public API Surface of act-pages
  */
 
-export * from './lib/act-pages.module';
+export * from './lib/xyz-pages.module';
