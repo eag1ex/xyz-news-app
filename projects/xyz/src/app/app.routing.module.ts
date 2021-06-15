@@ -9,11 +9,11 @@ const routes: Routes = [
       import('@xyz/xyz-pages').then((mod) => mod.ActPagesModule),
   },
   {
-    path: '',
-    redirectTo: `app/top`,
+    path: 'app',
+    redirectTo: `app/stories/top`,
     pathMatch: 'full',
   },
-  { path: '**', redirectTo: 'app/top', pathMatch: 'full' },
+  { path: '**', redirectTo: 'app/stories/top', pathMatch: 'full' },
 ];
 
 @NgModule({

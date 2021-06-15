@@ -28,6 +28,7 @@
     "@ngrx/store": "^12.1.0",
     "@nrwl/nx": "^7.8.7",
     "bootstrap": "=4.6.0",
+    "moment": "^2.29.1",
     "rxjs": "^6.6.7",
     "tslib": "^2.0.0",
     "x-utils-es": "^2.2.2",

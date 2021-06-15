@@ -2,25 +2,21 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-// top, best, new
+
 const routes: Routes = [
   {
-    path: ':story',
+    path: 'stories/:story', // top, best, new
     loadChildren: () =>
       import('./story/story.module').then((mod) => mod.StoryModule),
-      runGuardsAndResolvers: 'paramsChange',
-    // NOTE some resolvers can be added here when we use real api and state management
-    // resolve: {
-    //   homeProducts: HomeResolver
-    //   },
+      runGuardsAndResolvers: 'paramsChange'
   },
   {
     path: 'error',
     loadChildren: () =>
       import('./error/error.module').then((mod) => mod.ErrorModule),
+      runGuardsAndResolvers: 'paramsChange',
   },
-  // { path: 'home', redirectTo: 'top' },
-  // { path: '**', redirectTo: 'top' }
+  { path: '**', redirectTo: 'stories/top' }
 ];
 
 @NgModule({

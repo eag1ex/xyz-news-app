@@ -1,5 +1,38 @@
+@import 'colors.scss';
 :host {
-    .show-detail {
-        cursor: pointer;
+    mat-selection-list {
+        mat-list-option {
+            height: inherit;
+        }
+    }
+
+    .story-list {
+        .story-full-detail {
+            .list-group {
+                font-size: 0.85em;
+            }
+        }
+
+        .story-index {
+            font-weight: 700;
+            font-size: 0.75em;
+            .boxed {
+                background-color: rgba($color: $orange, $alpha: 0.5);
+            }
+        }
+
+        .show-detail {
+            .text-secondary-alpha {
+                color: rgba($color: $orange, $alpha: 0.7);
+            }
+            cursor: pointer;
+        }
+        .story-detail {
+            .title {
+            }
+            .small-detail {
+                font-size: small;
+            }
+        }
     }
 }
