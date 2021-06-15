@@ -1,0 +1,14 @@
+<div *ngIf="storyDetail" class="story-full-detail">
+    <ul class="list-group pt-1">
+        <li *ngIf="storyDetail.text" class="list-group-item disabled" aria-disabled="true">
+            <div>
+                <div class="text-muted py-1">Description:</div>
+                <div [innerHTML]="storyDetail.text"></div>
+            </div>
+        </li>
+        <li class="list-group-item">A second item</li>
+        <!-- <li class="list-group-item">A third item</li>
+      <li class="list-group-item">A fourth item</li>
+      <li class="list-group-item">And a fifth one</li> -->
+    </ul>
+</div>

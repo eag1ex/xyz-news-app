@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col">
             <mat-selection-list #current (selectionChange)="storySelected(current.selectedOptions.selected[0]?.value)" class="story-list" *ngIf="storyData" [multiple]="false">
-                <mat-list-option *ngFor="let story of storyData.response; let inx = index" [value]="story">
+                <mat-list-option class="pb-1" *ngFor="let story of storyData.response; let inx = index" [value]="story">
                     <div class="d-flex flex-row mb-3">
                         <div class="nr mr-2 d-flex flex-row">
                             <div class="story-index text-white p-1">
@@ -13,7 +13,7 @@
                             </div>
                         </div>
 
-                        <div class="story-detail ml-2">
+                        <div class="story-detail ml-2 pb-2">
                             <div class="d-flex flex-column">
                                 <div class="title">
                                     <div class="d-flex d-row">
@@ -29,20 +29,7 @@
                                 <div class="text-muted small-detail">
                                     <small>score&nbsp;{{ story.score }}&nbsp;|&nbsp;by&nbsp;{{ story.by }}&nbsp;|&nbsp;created&nbsp;{{ story.time | myDate }}</small>
                                 </div>
-                                <div *ngIf="story.showMore" class="story-full-detail">
-                                    <ul class="list-group">
-                                        <li *ngIf="story.text" class="list-group-item disabled" aria-disabled="true">
-                                            <div>
-                                                <div class="text-muted py-1">Description:</div>
-                                                <div [innerHTML]="story.text"></div>
-                                            </div>
-                                        </li>
-                                        <!-- <li class="list-group-item">A second item</li>
-                                        <li class="list-group-item">A third item</li>
-                                        <li class="list-group-item">A fourth item</li>
-                                        <li class="list-group-item">And a fifth one</li> -->
-                                    </ul>
-                                </div>
+                                <lib-story-detail *ngIf="story.showMore" [storyItem]="story"></lib-story-detail>
                             </div>
                         </div>
                     </div>

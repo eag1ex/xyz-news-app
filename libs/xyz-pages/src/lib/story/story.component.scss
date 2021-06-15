@@ -7,12 +7,6 @@
     }
 
     .story-list {
-        .story-full-detail {
-            .list-group {
-                font-size: 0.85em;
-            }
-        }
-
         .story-index {
             font-weight: 700;
             font-size: 0.75em;
@@ -28,6 +22,7 @@
             cursor: pointer;
         }
         .story-detail {
+            border-bottom: 1px solid rgba($color: #000000, $alpha: 0.06);
             .title {
             }
             .small-detail {
