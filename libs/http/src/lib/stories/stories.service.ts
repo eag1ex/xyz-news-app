@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { Ienv, IUser, IStoryItem, TQueries, TStoryTypes } from '@xyz/interfaces';
+import { Ienv, IStoryItem, TStoryTypes } from '@xyz/interfaces';
 import { isEmpty, log, onerror } from 'x-utils-es'
-import { empty, Observable, Subject, throwError, timer } from 'rxjs';
-import { catchError, debounce, debounceTime, filter, map, timeout, switchMap, retry, tap } from 'rxjs/operators';
+import {  Observable, Subject, throwError} from 'rxjs';
+import { catchError, debounceTime, filter,  timeout, switchMap, tap} from 'rxjs/operators';
 
 
 /**
@@ -36,13 +36,16 @@ export class StoriesHttpService {
         let sufix = `${this.baseUrl}/stories/${ params.type}`
         if (params.paged) sufix = `${sufix}?paged=${params.paged}`
         log(`-- calling ${sufix}`)
-        return this.http.get<any>(`${sufix}`)
+        return this.http.get<any>(`${sufix}`).pipe(
+          // how long to wait before we exit)
+          timeout(8000))
     }
 
     get stories$(): Observable<IStories> {
+
+
       return this.sub$.pipe(
-        debounceTime(500),
-       // timeout(10000),
+        debounceTime(400),
         filter(v => !!v),
         switchMap(m => this.stories(m)),
         tap(d => {
@@ -51,7 +54,9 @@ export class StoriesHttpService {
         catchError(err => {
           onerror('[stories]', err)
           return throwError(err);
-        })
-      ).pipe(retry(1))
+        }),
+      )
+      // retry with timeout works differently
+      // .pipe(retry(1))
     }
 }

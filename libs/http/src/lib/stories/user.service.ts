@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http'
 import { Inject, Injectable } from '@angular/core'
 import { Ienv, IUser, IStoryItem, TQueries, TStoryTypes } from '@xyz/interfaces'
-import { isEmpty, log, onerror } from 'x-utils-es'
-import { empty, Observable, Subject, throwError, timer } from 'rxjs'
-import { catchError, debounce, debounceTime, filter, map, timeout, switchMap, retry, tap } from 'rxjs/operators'
+import {  log, onerror } from 'x-utils-es'
+import {Observable, Subject, throwError} from 'rxjs'
+import { catchError,  debounceTime, filter, timeout, switchMap,  tap } from 'rxjs/operators'
 
 /**
  * NOTE URI provided via ./proxy
@@ -24,13 +24,15 @@ export class UserHttpService {
         const sufix = `${this.baseUrl}/user/${id}`
         log(`-- calling ${sufix}`)
         return this.http.get<any>(`${sufix}`)
+        .pipe(
+            // how long to wait before we exit)
+            timeout(8000))
     }
 
     get user$(): Observable<IUser> {
         return this.sub$
             .pipe(
                 debounceTime(500),
-                // timeout(10000),
                 filter((v) => !!v),
                 switchMap((m) => this.user(m)),
                 tap((d) => {
@@ -41,6 +43,7 @@ export class UserHttpService {
                     return throwError(err)
                 })
             )
-            .pipe(retry(1))
+            // retry with timeout works differently
+           // .pipe(retry(1))
     }
 }

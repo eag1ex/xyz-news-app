@@ -28,6 +28,8 @@
     "@ngrx/store": "^12.1.0",
     "@nrwl/nx": "^7.8.7",
     "bootstrap": "=4.6.0",
+    "jw-angular-pagination": "^1.2.0",
+    "jw-paginate": "^1.0.4",
     "moment": "^2.29.1",
     "rxjs": "^6.6.7",
     "tslib": "^2.0.0",

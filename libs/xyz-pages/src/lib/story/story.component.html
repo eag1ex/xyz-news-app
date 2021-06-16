@@ -36,7 +36,18 @@
                 </mat-list-option>
             </mat-selection-list>
 
-            <mat-spinner *ngIf="!storyData" diameter="60" class="m-auto" color="accent"></mat-spinner>
+            <div class="w-100 story-spinner-container">
+                <mat-spinner class="d-flex justify-content-center" diameter="60" class="m-auto" color="accent"></mat-spinner>
+            </div>
         </div>
     </div>
+    <lib-pagination
+        *ngIf="this.paginationSetup.ready"
+        [pageSize]="paginationSetup.pageSize"
+        [maxPages]="paginationSetup.maxPages"
+        [initialPage]="paginationSetup.initialPage"
+        [items]="paginationSetup.allItems"
+        (changePage)="pagedOnChangePage($event)"
+    >
+    </lib-pagination>
 </section>

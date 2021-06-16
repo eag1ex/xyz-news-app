@@ -15,9 +15,11 @@ interface ICurrentStory {
     name: TStories
     value: TStoryTypes
 }
+
 interface XStoryItem extends IStoryItem {
     showMore?: boolean;
 }
+
 
 @Component({
     selector: 'lib-home',
@@ -25,7 +27,17 @@ interface XStoryItem extends IStoryItem {
     styleUrls: ['./story.component.scss'],
 })
 export class StoryComponent implements OnInit, OnDestroy {
+
+    paginationSetup = {
+        ready: false, // set once {storyData} loaded
+        initialPage: 1, // paged
+        maxPages: 10, // max pagination to display
+        pageSize: 15, // this is the setting on the server, currently max to 15 per call
+        allItems: [] // metadata[] approximate number of available items
+    }
     subscriptions: Array<any> = []
+    public pagedItems: Array<any> = []
+
     public storyList: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers']
     private _currentStoryRoute: TStories
     public storyData: {response: XStoryItem[], paged: number, pagedTotal: number}
@@ -51,7 +63,7 @@ export class StoryComponent implements OnInit, OnDestroy {
      */
     set currentStoryRoute(name) {
         this._currentStoryRoute = name
-        const match = tooltipList.filter((n) => n.name === name)[0]
+        const match = currentRoute(name) // tooltipList.filter((n) => n.name === name)[0]
         if (match) this.subToCurrentStory(match as any)
     }
 
@@ -66,19 +78,39 @@ export class StoryComponent implements OnInit, OnDestroy {
 
         const s = this.storiesHttpService.stories$.subscribe((n) => {
           this.storyData = n
-          log('new story data set', n)
+
+          // pagination setting
+          const size = this.storyData.response.length * this.storyData.pagedTotal
+          this.paginationSetup.allItems = Array(size).fill(0).map((x, i) => ({ id: (i + 1), name: `Item ${i + 1}`}));
+          this.paginationSetup.initialPage = this.storyData.paged
+          this.paginationSetup.ready = true
+        }, err => {
+            log('catch err?', err)
+            // route to error page
+            this.router.navigate(['app/error']);
         })
 
         this.subscriptions.push(s)
-        this.storiesHttpService.sub$.next({ type: story.value, paged: 2 })
+        this.storiesHttpService.sub$.next({ type: story.value, paged: this.paginationSetup.initialPage })
     }
 
     public storySelected(story: XStoryItem): void{
-        log('item selected', story)
+        log('selected', story)
+    }
+
+    public pagedOnChangePage({currentPage}): void {
+
+        // do not execute if on the same previous index
+        if (this.paginationSetup.initialPage === currentPage ) return
+        else{
+            log('pagedOnChangePage/next')
+            const val =  currentRoute(this.currentStoryRoute)
+            this.storiesHttpService.sub$.next({ type: val.value as any, paged: currentPage })
+        }
     }
 
     public showDetail(story: XStoryItem, index: number): void {
-       // let showMore =  this.storyData.response[index].showMore
+
         this.storyData.response[index].showMore = !this.storyData.response[index].showMore
         log('show detail', this.storyData.response[index].showMore)
     }
@@ -95,6 +127,5 @@ export class StoryComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {}
-
     ngOnDestroy(): void {}
 }

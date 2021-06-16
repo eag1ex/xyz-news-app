@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core'
-import * as moment from 'moment'
+import moment from 'moment'
 
 const valid = (val) => {
   return !isNaN(new Date(val).valueOf()) && val > 0
