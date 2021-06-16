@@ -6,9 +6,13 @@
                 <div [innerHTML]="storyDetail.text"></div>
             </div>
         </li>
-        <li class="list-group-item">A second item</li>
-        <!-- <li class="list-group-item">A third item</li>
-      <li class="list-group-item">A fourth item</li>
-      <li class="list-group-item">And a fifth one</li> -->
+
+        <div *ngIf="metadata === undefined" class="spinner-wrap">
+            <mat-spinner class="d-flex justify-content-start" diameter="60" class="m-auto" color="accent"></mat-spinner>
+        </div>
+
+        <div *ngIf="metadata" class="text-muted m-2">
+            <pre>{{ metadata | json }}</pre>
+        </div>
     </ul>
 </div>

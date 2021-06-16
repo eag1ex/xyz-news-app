@@ -11,6 +11,11 @@ export interface IUser {
     submitted: Array<number>
 }
 
+export interface IMetadata{
+    metadata: {},
+    id?: number;
+}
+
 export interface IStoryItem {
     id: number // The item's unique id.
     deleted?: boolean // true if the item is deleted.

@@ -87,7 +87,6 @@ export class StoryComponent implements OnInit, OnDestroy, AfterContentInit {
           this.paginationSetup.ready = true
           this.paginationSetup.loadingNext = false
         }, err => {
-            log('catch err?', err)
             // route to error page
             this.router.navigate(['app/error']);
         })
@@ -123,7 +122,7 @@ export class StoryComponent implements OnInit, OnDestroy, AfterContentInit {
         this.subscriptions.forEach((sub, inx) => {
             try {
                 sub.unsubscribe()
-                log('unsubscribed!', inx)
+                log('unsubscribed!', inx + 1)
             } catch (err) {}
             this.subscriptions.splice(inx, 1)
         })

@@ -1,4 +1,7 @@
 
+import utf8 from 'utf8'
+import base64 from 'base-64'
+
 
 /**
  * return host from full url
@@ -12,4 +15,16 @@ const hostName = (url: string): string => {
     }
 }
 
-export {hostName}
+
+/**
+ * Encrypt string with btoa, can be decrypted with atob
+ */
+const encrypt = (str: string) => {
+     if (!str) return ''
+     const bytes = utf8.encode(str);
+     const encoded = base64.encode(bytes);
+     return encoded
+ }
+
+export { encrypt }
+export { hostName }
