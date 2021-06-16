@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http'
 import { Inject, Injectable } from '@angular/core'
 import { Ienv, IMetadata } from '@xyz/interfaces'
 import { isEmpty, log, onerror } from 'x-utils-es'
-import { Observable, Subject, throwError } from 'rxjs'
+import { Observable, Subject, throwError, of } from 'rxjs';
 import { catchError, debounceTime, filter, timeout, switchMap, tap } from 'rxjs/operators'
 import { encrypt } from '@xyz/utils'
 
@@ -46,8 +46,8 @@ export class MetadataHttpService {
             }),
             catchError((err) => {
                 // not critical so dont print it
-              //  onerror('[metadata]', err)
-                return throwError(err)
+                 log('no meta available')
+                 return throwError(err);
             })
         )
         // retry with timeout works differently

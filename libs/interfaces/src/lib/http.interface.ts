@@ -1,6 +1,9 @@
+import {IMetaDataHtmlList} from './common.interface'
+
 // example: https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty
 export type TQueries = 'topstories' | 'beststories' | 'newstories' | 'user'
 export type TStoryTypes = 'topstories' | 'beststories' | 'newstories'
+
 
 export interface IUser {
     about: string
@@ -12,7 +15,7 @@ export interface IUser {
 }
 
 export interface IMetadata{
-    metadata: {},
+    metadata: IMetaDataHtmlList[];
     id?: number;
 }
 

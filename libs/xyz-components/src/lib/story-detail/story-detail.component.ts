@@ -1,7 +1,8 @@
 import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core'
 import { MetadataHttpService } from '@xyz/http'
-import { IStoryItem } from '@xyz/interfaces'
-import { log } from 'x-utils-es'
+import { IMetaDataHtmlList, IStoryItem } from '@xyz/interfaces'
+import { isArray, log } from 'x-utils-es'
+
 
 interface XStoryItem extends IStoryItem {
     showMore?: boolean
@@ -15,11 +16,11 @@ interface XStoryItem extends IStoryItem {
 export class StoryDetailComponent implements OnInit, OnChanges, OnDestroy {
     public storyDetail: XStoryItem
     subscriptions = []
-    metadata = undefined // optional data if available
+    metadata: IMetaDataHtmlList[] = undefined // optional data if available
     constructor(private metadataHttpService: MetadataHttpService) {
 
     const s = this.metadataHttpService.meta$.subscribe(n => {
-        log('metadata value', n)
+        log('metadata value', n.response.metadata)
         this.metadata = n.response.metadata
       }, err => {
         // of not data available
@@ -38,6 +39,13 @@ export class StoryDetailComponent implements OnInit, OnChanges, OnDestroy {
             if (this.storyDetail.url) this.metadataHttpService.sub$.next(this.storyDetail.url)
           }
         }
+    }
+
+    /**
+     * Check if our nested item meta.value ===[] is nested array
+     */
+    public metaItemArray(item: any): boolean{
+      return isArray(item)
     }
 
     private unsub(): void {

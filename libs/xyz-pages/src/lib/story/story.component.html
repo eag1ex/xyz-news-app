@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col">
             <mat-selection-list #current (selectionChange)="storySelected(current.selectedOptions.selected[0]?.value)" class="story-list" *ngIf="storyData" [multiple]="false">
-                <mat-list-option class="py-2" *ngFor="let story of storyData.response; let inx = index" [value]="story">
+                <mat-list-option class="py-2 rounded" *ngFor="let story of storyData.response; let inx = index" [value]="story">
                     <div class="d-flex flex-row">
                         <div class="nr mr-2 d-flex flex-row">
                             <div class="story-index text-white p-1" (click)="showDetail(story, inx)">
@@ -24,7 +24,7 @@
                                 <div class="story-url" *ngIf="story.url">
                                     <div class="d-flex d-row align-items-center">
                                         <mat-icon class="text-muted mr-1" aria-hidden="false">http</mat-icon>
-                                        <span class="py-1 url-text">
+                                        <span class="url-text">
                                             <a class="text-muted" [href]="story.url" target="_blank">{{ story.url | hostName }}</a>
                                         </span>
                                     </div>

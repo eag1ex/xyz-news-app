@@ -1,9 +1,22 @@
 :host {
     .story-full-detail {
         .list-group {
-            font-size: 0.85em;
+            font-size: 0.9em;
+            line-height: 1.3em;
+            list-style: none;
+
+            .upper-list {
+                font-size: 1.1em;
+            }
+
+            .lower-list {
+                font-size: 1em;
+            }
         }
     }
     .spinner-wrap {
+        .caption {
+            font-size: 0.75em;
+        }
     }
 }

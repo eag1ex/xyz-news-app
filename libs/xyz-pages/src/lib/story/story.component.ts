@@ -128,8 +128,6 @@ export class StoryComponent implements OnInit, OnDestroy, AfterContentInit {
         })
     }
 
-
-
     ngOnInit(): void {}
     ngAfterContentInit(): void {
         // if we have mobile update padgination
