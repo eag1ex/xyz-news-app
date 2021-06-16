@@ -3,6 +3,30 @@
 }
 
 @media (max-device-width: 375px) {
+    lib-home {
+        .mat-selection-list {
+            .mat-list-item-content {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+        }
+        .story-list {
+            .story-detail {
+                margin-left: 0 !important;
+            }
+        }
+    }
+
+    lib-pagination {
+        .page-item {
+            &.first-item {
+                display: none;
+            }
+            &.previous-item {
+                display: none;
+            }
+        }
+    }
 }
 
 // standard ipad width

@@ -2,10 +2,10 @@
     <div class="row">
         <div class="col">
             <mat-selection-list #current (selectionChange)="storySelected(current.selectedOptions.selected[0]?.value)" class="story-list" *ngIf="storyData" [multiple]="false">
-                <mat-list-option class="pb-1" *ngFor="let story of storyData.response; let inx = index" [value]="story">
-                    <div class="d-flex flex-row mb-3">
+                <mat-list-option class="py-2" *ngFor="let story of storyData.response; let inx = index" [value]="story">
+                    <div class="d-flex flex-row">
                         <div class="nr mr-2 d-flex flex-row">
-                            <div class="story-index text-white p-1">
+                            <div class="story-index text-white p-1" (click)="showDetail(story, inx)">
                                 <span class="boxed pl-1 pr-2">{{ inx + 1 }}.</span>
                             </div>
                             <div class="show-detail" (click)="showDetail(story, inx)">
@@ -13,16 +13,20 @@
                             </div>
                         </div>
 
-                        <div class="story-detail ml-2 pb-2">
+                        <div class="story-detail ml-2">
                             <div class="d-flex flex-column">
                                 <div class="title">
                                     <div class="d-flex d-row">
                                         <div [innerHTML]="story.title | trim"></div>
-                                        <div class="story-url ml-2">
-                                            <small *ngIf="story.url">
-                                                <a class="text-muted" [href]="story.url" target="_blank">({{ story.url | hostName }})</a>
-                                            </small>
-                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="story-url" *ngIf="story.url">
+                                    <div class="d-flex d-row align-items-center">
+                                        <mat-icon class="text-muted mr-1" aria-hidden="false">http</mat-icon>
+                                        <span class="py-1 url-text">
+                                            <a class="text-muted" [href]="story.url" target="_blank">{{ story.url | hostName }}</a>
+                                        </span>
                                     </div>
                                 </div>
 
@@ -35,8 +39,9 @@
                     </div>
                 </mat-list-option>
             </mat-selection-list>
+            <div *ngIf="!storyData" class="pusher"></div>
 
-            <div class="w-100 story-spinner-container">
+            <div *ngIf="!storyData || paginationSetup.loadingNext" class="w-100 story-spinner-container">
                 <mat-spinner class="d-flex justify-content-center" diameter="60" class="m-auto" color="accent"></mat-spinner>
             </div>
         </div>

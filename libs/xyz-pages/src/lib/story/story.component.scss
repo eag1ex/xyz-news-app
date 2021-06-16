@@ -5,6 +5,19 @@
             height: inherit;
         }
     }
+
+    .story-url {
+        mat-icon {
+            font-size: 1.5em;
+        }
+        .url-text {
+            font-size: 0.75em;
+        }
+    }
+    .pusher {
+        width: 100%;
+        min-height: 100px;
+    }
     .story-spinner-container {
         position: absolute;
         top: 0%;

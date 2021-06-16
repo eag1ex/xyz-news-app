@@ -1,2 +1,11 @@
 :host {
+    .pagination {
+        .page-item {
+            font-size: 0.85em;
+            // do not show last
+            &.last-item {
+                display: none;
+            }
+        }
+    }
 }

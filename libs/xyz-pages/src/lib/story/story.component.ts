@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core'
+import { AfterContentInit, Component, OnDestroy, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router';
 import { StoriesHttpService } from '@xyz/http'
 import { IRouteParams, TStories, TStoryTypes, IStoryItem, ITooltipItem } from '@xyz/interfaces'
@@ -26,9 +26,10 @@ interface XStoryItem extends IStoryItem {
     templateUrl: './story.component.html',
     styleUrls: ['./story.component.scss'],
 })
-export class StoryComponent implements OnInit, OnDestroy {
+export class StoryComponent implements OnInit, OnDestroy, AfterContentInit {
 
     paginationSetup = {
+        loadingNext: false, // when changing pagination
         ready: false, // set once {storyData} loaded
         initialPage: 1, // paged
         maxPages: 10, // max pagination to display
@@ -84,6 +85,7 @@ export class StoryComponent implements OnInit, OnDestroy {
           this.paginationSetup.allItems = Array(size).fill(0).map((x, i) => ({ id: (i + 1), name: `Item ${i + 1}`}));
           this.paginationSetup.initialPage = this.storyData.paged
           this.paginationSetup.ready = true
+          this.paginationSetup.loadingNext = false
         }, err => {
             log('catch err?', err)
             // route to error page
@@ -103,6 +105,7 @@ export class StoryComponent implements OnInit, OnDestroy {
         // do not execute if on the same previous index
         if (this.paginationSetup.initialPage === currentPage ) return
         else{
+            this.paginationSetup.loadingNext = true
             log('pagedOnChangePage/next')
             const val =  currentRoute(this.currentStoryRoute)
             this.storiesHttpService.sub$.next({ type: val.value as any, paged: currentPage })
@@ -126,6 +129,18 @@ export class StoryComponent implements OnInit, OnDestroy {
         })
     }
 
+
+
     ngOnInit(): void {}
+    ngAfterContentInit(): void {
+        // if we have mobile update padgination
+        if (window.outerWidth < 415){
+            this.paginationSetup.maxPages = 6
+        } else{
+            // back to default
+            this.paginationSetup.maxPages = 10
+        }
+
+    }
     ngOnDestroy(): void {}
 }
