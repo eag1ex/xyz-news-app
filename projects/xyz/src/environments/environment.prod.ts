@@ -1,7 +1,7 @@
 export const environment = {
     production: true,
     serviceWorker: true,
-    appLandingUrl: '/app/home',
+    appLandingUrl: '/app',
     apiBaseUrl: '/api',
     adalConfigs: {
         tenant: 'na',

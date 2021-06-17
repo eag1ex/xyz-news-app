@@ -1,6 +1,8 @@
 
 import utf8 from 'utf8'
 import base64 from 'base-64'
+import { tooltipList } from '@xyz/data'
+import { ITooltipItem } from '@xyz/interfaces';
 
 export const repeat = (str, times) => new Array(times + 1).join(str);
 
@@ -16,6 +18,15 @@ export const formatTime = time => {
   };
 
 export const now = () => formatTime(new Date());
+
+/**
+ * Test current routeName to string value
+ * - using imported tooltipList from static data
+ */
+export const currentRoute = (routeName: string): ITooltipItem => {
+  const r = tooltipList.filter(n => n.name === routeName)[0]
+  return (r && routeName) ? r : null
+}
 
 
 /**

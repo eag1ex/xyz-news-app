@@ -1,15 +1,10 @@
 import { AfterContentInit, Component, OnDestroy, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router';
 import { StoriesHttpService } from '@xyz/http'
-import { IRouteParams, TStories, TStoryTypes, IStoryItem, ITooltipItem } from '@xyz/interfaces'
+import { IRouteParams, TStories, TStoryTypes, IStoryItem } from '@xyz/interfaces'
 import { log } from 'x-utils-es'
-import { tooltipList } from '@xyz/data'
+import { currentRoute } from '@xyz/utils';
 
-
-const currentRoute = (str: string): ITooltipItem => {
-    const r = tooltipList.filter(n => n.name === str)[0]
-    return (r && str) ? r : null
-}
 
 interface ICurrentStory {
     name: TStories

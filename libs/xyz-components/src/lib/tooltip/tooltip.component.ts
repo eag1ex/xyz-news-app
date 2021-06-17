@@ -30,7 +30,7 @@ export class TooltipComponent implements OnInit {
     ngOnInit(): void {
         this.chipList.get('chip').valueChanges.subscribe((n: ITooltipItem) => {
           this.router.navigate([`app/stories/${n.name}`]).then(nn => {
-            if (nn) log('navigated to', n)
+           // if (nn) log('navigated to', n)
           })
         })
     }
