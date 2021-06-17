@@ -14,7 +14,8 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "allowedCommonJsDependencies":[
-              "x-utils",
+              "x-utils-es",
+              "base-64",
               "deep-object-diff"
             ],
             "outputPath": "dist/xyz",
