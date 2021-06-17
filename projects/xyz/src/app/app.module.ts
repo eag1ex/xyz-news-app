@@ -7,12 +7,11 @@ import { MainComponent } from './main/main.component'
 import { ServiceWorkerModule } from '@angular/service-worker'
 import { environment } from '../environments/environment'
 import { AppRoutingModule } from './app.routing.module'
-import { debug, disableLogging, sq } from 'x-utils-es'
+import { debug, disableLogging } from 'x-utils-es'
 import { XYZComponentsModule } from '@xyz/components'
 import { ThemeModule } from '@xyz/theme'
 import { MaterialModule } from '@xyz/material'
 import { XYZBackendProvider } from '@xyz/http'
-import { InterceptorModule } from '@xyz/utils'
 
 // disable console.log
 if (environment.production === true) {
@@ -35,7 +34,6 @@ if (environment.production === true) {
             registrationStrategy: 'registerWhenStable:30000',
         }),
 
-        InterceptorModule.forRoot(environment.apiBaseUrl),
         MaterialModule,
         ThemeModule,
         BrowserAnimationsModule,

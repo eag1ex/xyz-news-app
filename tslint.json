@@ -105,6 +105,8 @@
     },
     "variable-name": {
       "options": [
+        "allow-snake-case",
+        "allow-leading-underscore",
         "ban-keywords",
         "check-format",
         "allow-pascal-case"

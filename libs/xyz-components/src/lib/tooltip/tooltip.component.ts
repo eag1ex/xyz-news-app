@@ -29,7 +29,7 @@ export class TooltipComponent implements OnInit {
       })
     }
 
-    get chip() {
+    get chip(): any {
         return this.chipList.get('chip')
     }
 
