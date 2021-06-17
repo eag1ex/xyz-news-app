@@ -1,16 +1,8 @@
-import { NgModule } from '@angular/core';
-import { ThemeComponent } from './theme.component';
-
-
+import { NgModule } from '@angular/core'
 
 @NgModule({
-  declarations: [
-    ThemeComponent
-  ],
-  imports: [
-  ],
-  exports: [
-    ThemeComponent
-  ]
+    declarations: [],
+    imports: [],
+    exports: [],
 })
-export class ThemeModule { }
+export class ThemeModule {}

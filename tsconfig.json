@@ -41,10 +41,6 @@
       "@xyz/interfaces": [
         "libs/interfaces/src/public-api.ts"
       ],
-      
-      "@xyz/services": [
-        "libs/services/src/public-api.ts"
-      ],
 
       "@xyz/utils": [
         "libs/utils/src/public-api.ts"
