@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve xyz --proxy-config ./proxy/xyz-local-proxy.json --disable-host-check --port 4444",
-    "build:prod": "ng build xyz --prod --aot --configuration=production --base-href /",
+    "build:prod": "ng build xyz --prod --aot --configuration=production --base-href /xyz",
     "build": "ng build xyz",
     "test": "ng test",
     "lint": "ng lint",

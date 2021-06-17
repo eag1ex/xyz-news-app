@@ -2,7 +2,6 @@ import { ITooltipItem } from '@xyz/interfaces';
 import { Component, OnInit } from '@angular/core'
 import { FormControl, FormGroup } from '@angular/forms'
 import { tooltipList } from '@xyz/data'
-import { log } from 'x-utils-es'
 import { Router } from '@angular/router';
 
 interface XTooltipItem extends ITooltipItem {
@@ -39,7 +38,13 @@ export class TooltipComponent implements OnInit {
 
     ngOnInit(): void {
         this.chipList.get('chip').valueChanges.subscribe((n: XTooltipItem) => {
-          n.selected = true
+
+          // toogle selection
+          this.tooltipList.forEach(nn => {
+            if (nn.value === n.value) nn.selected = true
+            else nn.selected = false
+          })
+
           this.router.navigate([`app/stories/${n.name}`]).then(nn => {
            // if (nn) log('navigated to', n)
           })
