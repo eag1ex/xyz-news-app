@@ -7,9 +7,9 @@ import { Injectable, isDevMode } from '@angular/core'
 import { IStoriesReps, IMetaResp } from '@xyz/interfaces'
 import { RxStore } from '@xyz/utils'
 import { Observable } from 'rxjs'
-import { copy, log } from 'x-utils-es'
+import { copy } from 'x-utils-es'
 interface IStoriesPaged {
-    [paged: number]: IStoriesReps
+    [ref: string]: IStoriesReps // storyName+paged
 }
 
 interface ImetaStored {
@@ -33,22 +33,26 @@ export class XYXstates extends RxStore<IState> {
     constructor() {
         super(initialState, { debug: isDevMode() })
     }
+
     /**
      * Set each new story with paged number
      */
-    setStory(story: IStoriesReps, paged: number): void {
+    setStory(story: IStoriesReps, storyName: string, paged: number): void {
+        const ref = storyName + paged
         const state = copy(this.getState().stories) as any
-        if (!state[paged]) {
-            state[paged] = story
+        if (!state[ref]) {
+            state[ref] = story
             this.setState({ stories: state })
         }
     }
+
     /**
      * Return cached story by paged number
      */
-    story$(paged: number): Observable<IStoriesReps> {
+    story$(storyName: string, paged: number): Observable<IStoriesReps> {
+        const ref = storyName + paged
         return this.select((state) => {
-            return state.stories[paged] || undefined
+            return state.stories[ref] || undefined
         })
     }
 

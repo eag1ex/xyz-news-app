@@ -49,6 +49,10 @@ export class StoryComponent implements OnInit, OnDestroy, AfterContentInit {
             const params: IRouteParams = (d as any).params
             const rt = currentRoute(params.story)
             if (rt) {
+
+                // reset pagination state on new page route
+                this.paginationSetup.initialPage = 1
+
                 this.storyData = undefined
                 this.currentStoryRoute = rt.name as TStories
                 log('params.story', params.story)
@@ -78,8 +82,9 @@ export class StoryComponent implements OnInit, OnDestroy, AfterContentInit {
         this.unsub()
 
         const s = this.storiesHttpService.stories$.subscribe((n) => {
+
           this.storyData = n
-          log('data on subscribe')
+          log('storiesHttpService this.storyData.paged', this.storyData.paged)
           // pagination setting
           const size = this.storyData.response.length * this.storyData.pagedTotal
           this.paginationSetup.allItems = Array(size).fill(0).map((x, i) => ({ id: (i + 1), name: `Item ${i + 1}`}));
@@ -92,11 +97,12 @@ export class StoryComponent implements OnInit, OnDestroy, AfterContentInit {
         })
 
         this.subscriptions.push(s)
+
         this.storiesHttpService.sub$.next({ type: story.value, paged: this.paginationSetup.initialPage })
     }
 
     public storySelected(story: XStoryItem): void{
-        log('selected', story)
+      //  log('selected', story)
     }
 
     public pagedOnChangePage({currentPage}): void {
@@ -114,7 +120,7 @@ export class StoryComponent implements OnInit, OnDestroy, AfterContentInit {
     public showDetail(story: XStoryItem, index: number): void {
 
         this.storyData.response[index].showMore = !this.storyData.response[index].showMore
-        log('show detail', this.storyData.response[index].showMore)
+       // log('show detail', this.storyData.response[index].showMore)
     }
 
     private unsub(): void {

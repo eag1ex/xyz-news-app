@@ -27,9 +27,12 @@ export class PaginationComponent implements OnInit, OnChanges {
 
     ngOnChanges(changes: SimpleChanges): void {
         // reset page if items array has changed
-        if (changes.items.currentValue !== changes.items.previousValue) {
-            this.setPage(this.initialPage)
+        if (changes.items){
+            if (changes.items.currentValue !== changes.items.previousValue) {
+                this.setPage(this.initialPage)
+            }
         }
+
     }
 
     setPage(page: number): void {

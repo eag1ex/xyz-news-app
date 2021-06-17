@@ -30,7 +30,7 @@ export class StoriesHttpService {
         if (params.paged) sufix = `${sufix}?paged=${params.paged}`
         log(`-- calling ${sufix}`)
         const http = (): Observable<IStoriesReps> => this.http.get<any>(`${sufix}`)
-        return from(this.states.story$(params.paged)).pipe(
+        return from(this.states.story$(params.type, params.paged)).pipe(
         //  delay(10000),
           switchMap(n => {
           if (!n){
@@ -38,11 +38,11 @@ export class StoriesHttpService {
               .pipe(
                 map(nn => {
                   // set new cache
-                  this.states.setStory(nn, params.paged)
+                  this.states.setStory(nn, params.type, params.paged)
                   return nn
                 }))
             } else {
-              log('[stories][cache]')
+              log('[stories][cached]')
               return of(n)
             }
           }),
@@ -60,7 +60,7 @@ export class StoriesHttpService {
         filter(v => !!v),
         switchMap(m => this.stories(m)),
         tap(d => {
-            log('[stories] ?', d)
+            log('[stories]', d)
         }),
         catchError(err => {
           onerror('[stories]', err)

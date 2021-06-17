@@ -13,7 +13,7 @@ import { ThemeModule } from '@xyz/theme'
 import { MaterialModule } from '@xyz/material'
 import { XYZBackendProvider } from '@xyz/http'
 import { InterceptorModule } from '@xyz/utils'
-import { NxModule } from '@nrwl/nx';
+
 // disable console.log
 if (environment.production === true) {
     debug(`-- Using Angular 11.x --`)
@@ -34,7 +34,7 @@ if (environment.production === true) {
             // or after 30 seconds (whichever comes first).
             registrationStrategy: 'registerWhenStable:30000',
         }),
-        NxModule.forRoot(),
+
         InterceptorModule.forRoot(environment.apiBaseUrl),
         MaterialModule,
         ThemeModule,

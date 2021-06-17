@@ -44,7 +44,7 @@ export class MetadataHttpService {
                       return nn
                     }))
                 } else {
-                  log('[meta][cache]')
+                  log('[meta][cached]')
                   return of(n)
                 }
               }),
