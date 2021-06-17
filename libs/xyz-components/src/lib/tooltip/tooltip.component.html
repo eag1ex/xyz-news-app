@@ -2,9 +2,17 @@
     <div class="row">
         <div class="col-auto py-3">
             <mat-chip-list [formGroup]="chipList" [selectable]="true" #chip aria-label="Fish selection">
-                <mat-chip class="px-4" ngDefaultControl formControlName="chip" *ngFor="let item of tooltipList" (click)="chipClicked(item)" selected color="warn">{{
-                    item.name
-                }}</mat-chip>
+                <mat-chip
+                    class="px-4"
+                    ngDefaultControl
+                    formControlName="chip"
+                    *ngFor="let item of tooltipList"
+                    [selected]="item.selected"
+                    (click)="chipClicked(item)"
+                    selected
+                    color="warn"
+                    >{{ item.name }}</mat-chip
+                >
 
                 <!-- <mat-chip selected >Two fish</mat-chip>
               <mat-chip color="primary" selected>Primary fish</mat-chip>
