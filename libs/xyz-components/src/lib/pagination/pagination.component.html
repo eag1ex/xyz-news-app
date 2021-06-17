@@ -12,7 +12,9 @@
                     <a (click)="setPage(page)" class="page-link">{{ page }}</a>
                 </li>
                 <li [ngClass]="{ disabled: pager.currentPage === pager.totalPages }" class="page-item next-item">
-                    <a (click)="setPage(pager.currentPage + 1)" class="page-link">Next</a>
+                    <a (click)="setPage(pager.currentPage + 1)" 
+                    
+                    class="page-link rounded-next">Next</a>
                 </li>
                 <li [ngClass]="{ disabled: pager.currentPage === pager.totalPages }" class="page-item last-item">
                     <a (click)="setPage(pager.totalPages)" class="page-link">Last</a>

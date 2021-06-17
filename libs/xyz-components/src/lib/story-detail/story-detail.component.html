@@ -2,7 +2,7 @@
     <ul class="list-group pl-0">
         <li *ngIf="storyDetail.text" class="list-group-item disabled" aria-disabled="true">
             <div>
-                <div class="text-muted py-1">Description:</div>
+                <div class="py-1">Description:</div>
                 <div [innerHTML]="storyDetail.text"></div>
             </div>
         </li>
@@ -14,13 +14,13 @@
             </div>
         </div>
 
-        <div *ngIf="metadata" class="text-muted">
+        <div *ngIf="metadata" class="text-muted outter-list-wrap p-2">
             <ul class="list-group pl-0">
                 <li *ngFor="let item of metadata; let inx = index" class="list-group-item">
-                    <span class="text-primary upper-list">{{ item.name }}:&nbsp;</span>
+                    <span class="text-secondary upper-list">{{ item.name }}:&nbsp;</span>
                     <ul *ngIf="metaItemArray(item.value)" class="list-group item-array pl-3 mb-1">
                         <li *ngFor="let itm of item.value; let inx2 = index" class="list-group-item">
-                            <span class="text-primary lower-list">{{ itm.name }}:&nbsp;</span>
+                            <span class="text-secondary lower-list">{{ itm.name }}:&nbsp;</span>
                             <span>{{ itm.value }}</span>
                         </li>
                     </ul>

@@ -1,0 +1,9 @@
+@mixin primary-font() {
+    font-family: 'Encode Sans', 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    font-weight: 400;
+}
+
+@mixin secondary-font() {
+    font-family: 'Source Code Pro', Arial, Helvetica, sans-serif;
+    font-weight: 300;
+}

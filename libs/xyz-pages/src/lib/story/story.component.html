@@ -1,8 +1,14 @@
 <section>
     <div class="row">
         <div class="col">
-            <mat-selection-list #current (selectionChange)="storySelected(current.selectedOptions.selected[0]?.value)" class="story-list" *ngIf="storyData" [multiple]="false">
-                <mat-list-option class="py-2 rounded" *ngFor="let story of storyData.response; let inx = index" [value]="story">
+            <mat-selection-list
+                #current
+                (selectionChange)="storySelected(current.selectedOptions.selected[0]?.value)"
+                class="story-list bg-primary"
+                *ngIf="storyData"
+                [multiple]="false"
+            >
+                <mat-list-option color="primary" class="py-2 rounded" *ngFor="let story of storyData.response; let inx = index" [value]="story">
                     <div class="d-flex flex-row">
                         <div class="nr mr-2 d-flex flex-row">
                             <div class="story-index text-white p-1" (click)="showDetail(story, inx)">
@@ -42,7 +48,7 @@
             <div *ngIf="!storyData" class="pusher"></div>
 
             <div *ngIf="!storyData || paginationSetup.loadingNext" class="w-100 story-spinner-container">
-                <mat-spinner class="d-flex justify-content-center" diameter="60" class="m-auto" color="accent"></mat-spinner>
+                <mat-spinner class="d-flex justify-content-center" diameter="70" class="m-auto" color="warn"></mat-spinner>
             </div>
         </div>
     </div>

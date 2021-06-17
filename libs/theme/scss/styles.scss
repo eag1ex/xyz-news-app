@@ -1,9 +1,15 @@
 @import './colors';
+@import './mixin-bits/fonts';
 @import './variables';
 @import './mixins';
 
+/*
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;300;400;500;600&family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+* */
+
 // NOTE only 2 free types are available no italics
-@import url('https://fonts.googleapis.com/css?family=Calibri:400,700|Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Encode+Sans:wght@400;700|Source+Code+Pro:wght@300|Material+Icons&display=swap');
 
 @import './theme';
 @import '~bootstrap/scss/mixins';
@@ -25,23 +31,30 @@
 @import './responsive';
 
 html {
-    background: $white;
-    background-color: $white !important;
+    background: $black;
+    background-color: $black !important;
     // background: $body-bg;
     // background-color: $body-bg !important;
 }
 
 body {
-    font-family: $font-family;
-    font-weight: 400;
+    @include primary-font();
     font-size: 16px;
     line-height: 17px;
-    color: $body-color;
+    color: $white;
     margin-bottom: 0;
     // background: $black-custom;
 
     // to see throu our blur bg
     background-color: transparent !important;
+}
+
+a,
+p,
+ul,
+li,
+div {
+    color: $white;
 }
 
 a.reset-link {
@@ -71,7 +84,7 @@ h2 {
 }
 
 .mat-divider {
-    border-top-color: $black !important;
+    border-top-color: $white !important;
 }
 
 .cf {

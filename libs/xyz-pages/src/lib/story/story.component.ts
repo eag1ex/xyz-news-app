@@ -105,7 +105,7 @@ export class StoryComponent implements OnInit, OnDestroy, AfterContentInit {
         if (this.paginationSetup.initialPage === currentPage ) return
         else{
             this.paginationSetup.loadingNext = true
-            log('pagedOnChangePage/next')
+
             const val =  currentRoute(this.currentStoryRoute)
             this.storiesHttpService.sub$.next({ type: val.value as any, paged: currentPage })
         }
