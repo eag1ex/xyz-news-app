@@ -15,7 +15,7 @@ export class AppComponent {
     constructor(private activatedRoute: ActivatedRoute, protected router: Router, private titleService: Title) {
         this.routerEvents()
     }
-
+    // TODO add service to dispatch current page state to page and child components
     private routerEvents(): void {
         this.router.events.subscribe(async (val: any) => {
             log('[app][loading]', val.constructor.name)

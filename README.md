@@ -66,9 +66,9 @@ Application structure
     * fonts
     * assets
   * http: our rx.js api with state/caching  
-  * xyz-components: all available components live here
+  * xyz-components: all available component sections live here
   * data: all `(most)` static data lives here
-  
+
 * proxy: `./api` requests in development are rauted via proxy setting    
 
 #### Essention VSC plugins
