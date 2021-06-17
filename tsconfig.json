@@ -54,7 +54,10 @@
       ],
       "@xyz/data": [
         "libs/data/src/public-api.ts"
-      ]
+      ],
+      "@xyz/states": [
+        "libs/states/src/public-api.ts"
+      ],
     }
   },
   "angularCompilerOptions": {

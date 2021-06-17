@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { log } from 'x-utils-es';
 
+
 @Component({
   selector: 'lib-error',
   templateUrl: './error.component.html',
@@ -9,9 +10,9 @@ import { log } from 'x-utils-es';
 })
 export class ErrorComponent implements OnInit {
 
-  constructor(private _route: ActivatedRoute) { 
+  constructor(private _route: ActivatedRoute) {
     this._route.paramMap.subscribe((d) => {
-      log('error route',d)
+     // log('error route',d)
     })
   }
 

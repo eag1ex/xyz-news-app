@@ -1,18 +1,16 @@
 import { HttpClient } from '@angular/common/http'
 import { Inject, Injectable } from '@angular/core'
-import { Ienv, IMetadata } from '@xyz/interfaces'
-import { isEmpty, log, onerror } from 'x-utils-es'
-import { Observable, Subject, throwError, of } from 'rxjs';
-import { catchError, debounceTime, filter, timeout, switchMap, tap } from 'rxjs/operators'
+import { Ienv, IMetaResp } from '@xyz/interfaces'
+import { isEmpty, log } from 'x-utils-es'
+import { Observable, Subject, throwError, of, from } from 'rxjs';
+import { catchError, debounceTime, filter, timeout, switchMap, tap, map, first } from 'rxjs/operators';
 import { encrypt } from '@xyz/utils'
+import { XYXstates } from '@xyz/states';
 
 /**
  * NOTE URI provided via ./proxy
  */
 
-interface IMeta {
-    response: IMetadata
-}
 
 @Injectable({
     providedIn: 'root',
@@ -20,23 +18,43 @@ interface IMeta {
 export class MetadataHttpService {
     private baseUrl: string
     sub$: Subject<string> = new Subject()
-    constructor(private http: HttpClient, @Inject('ENVIRONMENT') protected ENVIRONMENT: Ienv) {
+    constructor(
+        private states: XYXstates,
+        private http: HttpClient, @Inject('ENVIRONMENT') protected ENVIRONMENT: Ienv) {
         this.baseUrl = this.ENVIRONMENT.apiBaseUrl
     }
 
-    private meta(url: string): Observable<IMeta> {
+    private meta(url: string): Observable<IMetaResp> {
         if (isEmpty(url)) return throwError('url not provided')
-
-        const sufix = `${this.baseUrl}/metadata/${encrypt(url)}`
+        const eurl = encrypt(url)
+        const sufix = `${this.baseUrl}/metadata/${eurl}`
         //  if (params.paged) sufix = `${sufix}?paged=${params.paged}`
         log(`-- calling ${sufix}`)
-        return this.http.get<any>(`${sufix}`).pipe(
-            // how long to wait before we exit)
-            timeout(8000)
-        )
+
+        const http = (): Observable<IMetaResp> => this.http.get<any>(`${sufix}`)
+        return from(this.states.meta$(eurl)).pipe(
+            //  delay(10000),
+              switchMap(n => {
+              if (!n){
+                  return http()
+                  .pipe(
+                    map(nn => {
+                      // set new cache
+                      this.states.setMeta(eurl, nn)
+                      return nn
+                    }))
+                } else {
+                  log('[meta][cache]')
+                  return of(n)
+                }
+              }),
+              first(),
+               // how long to wait before we exit
+              timeout(10000)
+              )
     }
 
-    get meta$(): Observable<IMeta> {
+    get meta$(): Observable<IMetaResp> {
         return this.sub$.pipe(
             debounceTime(400),
             filter((v) => !!v),

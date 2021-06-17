@@ -79,7 +79,7 @@ export class StoryComponent implements OnInit, OnDestroy, AfterContentInit {
 
         const s = this.storiesHttpService.stories$.subscribe((n) => {
           this.storyData = n
-
+          log('data on subscribe')
           // pagination setting
           const size = this.storyData.response.length * this.storyData.pagedTotal
           this.paginationSetup.allItems = Array(size).fill(0).map((x, i) => ({ id: (i + 1), name: `Item ${i + 1}`}));
