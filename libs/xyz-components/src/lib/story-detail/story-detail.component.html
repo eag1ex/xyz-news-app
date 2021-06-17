@@ -8,7 +8,7 @@
         </li>
 
         <div *ngIf="metadata === undefined && storyDetail.url" class="spinner-wrap">
-            <div class="d-flex justify-content-start align-items-center flex-row mt-2">
+            <div class="d-flex justify-content-start align-items-center flex-row mt-3">
                 <mat-spinner diameter="30" color="accent"></mat-spinner>
                 <small class="caption text-muted">&nbsp; loading metadata</small>
             </div>
@@ -29,6 +29,10 @@
                     </span>
                 </li>
             </ul>
+        </div>
+
+        <div *ngIf="metadata === null" class="outter-list-wrap p-2">
+            <span class="text-secondary">No metadata available</span>
         </div>
     </ul>
 </div>

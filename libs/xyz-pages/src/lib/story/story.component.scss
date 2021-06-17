@@ -6,6 +6,9 @@
             &.mat-list-single-selected-option {
                 background: rgba($color: $orange, $alpha: 0.15);
             }
+            &:hover {
+                border: 1px inset rgba($color: #fff, $alpha: 0.1) !important;
+            }
         }
     }
 
@@ -53,6 +56,8 @@
         .story-detail {
             border-bottom: 1px solid rgba($color: #000000, $alpha: 0.06);
             .title {
+                font-size: 0.85em;
+                line-height: 1.35em;
             }
             .small-detail {
                 font-size: small;
