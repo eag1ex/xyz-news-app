@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core'
 import { FormControl, FormGroup } from '@angular/forms'
 import { tooltipList } from '@xyz/data'
 import { Router } from '@angular/router';
+import { RouterEventService } from '@xyz/services';
+import { log } from 'x-utils-es';
 
 interface XTooltipItem extends ITooltipItem {
   selected?: boolean;
@@ -20,12 +22,14 @@ export class TooltipComponent implements OnInit {
         chip: new FormControl({})
     })
 
-    constructor(private router: Router) {
-      // preset new toopit se selected
-      this.tooltipList.forEach(n => {
-        if (n.name === 'top')  n.selected = true
-
-      })
+    constructor(
+      private eventServive: RouterEventService,
+      private router: Router) {
+        this.eventServive.routeChange((params => {
+          if (params.story){
+            this.select(params.story)
+          }
+        }))
     }
 
     get chip(): any {
@@ -36,15 +40,18 @@ export class TooltipComponent implements OnInit {
       this.chipList.patchValue({chip: val})
     }
 
+    private select(value: string): void{
+      this.tooltipList.forEach(nn => {
+        if (nn.name === value) nn.selected = true
+        else nn.selected = false
+      })
+    }
+
     ngOnInit(): void {
         this.chipList.get('chip').valueChanges.subscribe((n: XTooltipItem) => {
 
           // toogle selection
-          this.tooltipList.forEach(nn => {
-            if (nn.value === n.value) nn.selected = true
-            else nn.selected = false
-          })
-
+          this.select( n.name)
           this.router.navigate([`app/stories/${n.name}`]).then(nn => {
            // if (nn) log('navigated to', n)
           })

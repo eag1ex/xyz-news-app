@@ -4,6 +4,8 @@ import { Title } from '@angular/platform-browser'
 import { log } from 'x-utils-es'
 import {pageTitle} from '@xyz/data'
 import {currentRoute} from '@xyz/utils'
+import { IRouteParams } from '@xyz/interfaces'
+import { RouterEventService } from '@xyz/services'
 
 @Component({
     selector: 'xyz-root',
@@ -12,32 +14,43 @@ import {currentRoute} from '@xyz/utils'
 })
 export class AppComponent {
     public title = pageTitle
-    constructor(private activatedRoute: ActivatedRoute, protected router: Router, private titleService: Title) {
+    constructor(
+        private eventService: RouterEventService,
+        private activatedRoute: ActivatedRoute, protected router: Router, private titleService: Title) {
         this.routerEvents()
     }
-    // TODO add service to dispatch current page state to page and child components
+
     private routerEvents(): void {
         this.router.events.subscribe(async (val: any) => {
             log('[app][loading]', val.constructor.name)
             const { routerEvent } = val
             let newTitle
+            let routeName: IRouteParams
             if (routerEvent && this.currentRoute('/app/stories/top')) {
                 log('NavigationEnd', 'currentRoute /app/stories/top')
                 newTitle = `${this.title} | ${currentRoute('top').value}`
+                routeName = {story: 'top'}
             }
             if (routerEvent && this.currentRoute('/app/stories/best')) {
                 log('NavigationEnd', 'currentRoute /app/stories/best')
                 newTitle = `${this.title} | ${currentRoute('best').value}`
+                routeName = {story: 'best'}
             }
             if (routerEvent && this.currentRoute('/app/stories/new')) {
                 log('NavigationEnd', 'currentRoute /app/stories/new')
                 newTitle = `${this.title} | ${currentRoute('new').value}`
+                routeName = {story: 'new'}
             }
             if (newTitle){
               this.titleService.setTitle(newTitle);
             }
 
+            if (routeName){
+                this.eventService.dispatch(routeName)
+            }
+
         })
+
     }
 
     private currentRoute(val = ''): boolean {
