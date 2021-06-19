@@ -1,9 +1,15 @@
-<div *ngIf="storyDetail" class="story-full-detail mt-2">
-    <ul class="list-group pl-0">
+<div *ngIf="storyDetail" class="story-full-detail mt-1">
+    <ul class="list-group pl-0 mb-0">
         <li *ngIf="storyDetail.text" class="list-group-item disabled" aria-disabled="true">
             <div>
                 <div class="py-1">Description:</div>
                 <div [innerHTML]="storyDetail.text"></div>
+            </div>
+        </li>
+
+        <li *ngIf="storyDetail.deleted || storyDetail.dead" class="list-group-item disabled">
+            <div class="text-muted small-detail mb-1">
+                <small><span *ngIf="storyDetail.deleted">story deleted&nbsp;</span><span *ngIf="storyDetail.dead">|&nbsp;story dead</span></small>
             </div>
         </li>
 
@@ -14,21 +20,24 @@
             </div>
         </div>
 
-        <div *ngIf="metadata" class="text-muted outter-list-wrap p-2">
-            <ul class="list-group pl-0">
-                <li *ngFor="let item of metadata; let inx = index" class="list-group-item">
-                    <span class="text-secondary upper-list">{{ item.name }}:&nbsp;</span>
-                    <ul *ngIf="metaItemArray(item.value)" class="list-group item-array pl-3 mb-1">
-                        <li *ngFor="let itm of item.value; let inx2 = index" class="list-group-item">
-                            <span class="text-secondary lower-list">{{ itm.name }}:&nbsp;</span>
-                            <span>{{ itm.value }}</span>
-                        </li>
-                    </ul>
-                    <span class="item-flat-string" *ngIf="!metaItemArray(item.value)">
-                        {{ item.value }}
-                    </span>
-                </li>
-            </ul>
+        <div *ngIf="metadata">
+            <span class="text-muted small">website metadata:&nbsp;</span>
+            <div class="text-muted outter-list-wrap p-2">
+                <ul class="list-group pl-0 mb-0">
+                    <li *ngFor="let item of metadata; let inx = index" class="list-group-item">
+                        <span class="text-secondary upper-list">{{ item.name }}:&nbsp;</span>
+                        <ul *ngIf="metaItemArray(item.value)" class="list-group item-array pl-3 mb-1">
+                            <li *ngFor="let itm of item.value; let inx2 = index" class="list-group-item">
+                                <span class="text-secondary lower-list">{{ itm.name }}:&nbsp;</span>
+                                <span>{{ itm.value }}</span>
+                            </li>
+                        </ul>
+                        <span class="item-flat-string" *ngIf="!metaItemArray(item.value)">
+                            {{ item.value }}
+                        </span>
+                    </li>
+                </ul>
+            </div>
         </div>
 
         <div *ngIf="metadata === null" class="outter-list-wrap p-2">

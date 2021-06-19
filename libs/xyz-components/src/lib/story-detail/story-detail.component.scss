@@ -2,6 +2,9 @@
 
 :host {
     .story-full-detail {
+        .small-detail {
+            font-size: small;
+        }
         .outter-list-wrap {
             > * {
                 @include secondary-font();

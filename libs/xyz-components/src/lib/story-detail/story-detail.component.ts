@@ -1,7 +1,7 @@
-import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core'
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core'
 import { MetadataHttpService } from '@xyz/http'
 import { IMetaDataHtmlList, IStoryItem } from '@xyz/interfaces'
-import { isArray, log } from 'x-utils-es'
+import { isArray, log, sq } from 'x-utils-es'
 
 interface XStoryItem extends IStoryItem {
     showMore?: boolean
@@ -14,25 +14,43 @@ interface XStoryItem extends IStoryItem {
 })
 export class StoryDetailComponent implements OnInit, OnChanges, OnDestroy {
     public storyDetail: XStoryItem
+    private ngReady = sq()
     subscriptions = []
     metadata: IMetaDataHtmlList[] = undefined // optional data if available
     constructor(private metadataHttpService: MetadataHttpService) {
+
         const s = this.metadataHttpService.meta$.subscribe(
             (n) => {
                 this.metadata = n.response.metadata
                 // we have the same subscription for each detail, but only need it once
                 s.unsubscribe()
+                this.ngReady.then(n=>{
+                    this.loading.emit({ loading: false, id: this.storyItem.id })
+                })
+                
             },
             (err) => {
                 // of not data available
                 this.metadata = null
                 s.unsubscribe()
+
+                this.ngReady.then(n=>{
+                  this.loading.emit({ loading: false, id: this.storyItem.id })
+                })
             }
         )
+
+        this.ngReady.then(n=>{
+            if(this.storyItem.url) this.loading.emit({loading:true, id: this.storyItem.id})
+        })
+      
+
         this.subscriptions.push(s)
     }
 
     @Input() storyItem: XStoryItem
+    // show fancy loading icon on story page
+    @Output() loading = new EventEmitter<{loading:boolean,id?:number}>();
 
     ngOnChanges(changes: SimpleChanges): void {
         if (changes.storyItem) {
@@ -61,7 +79,9 @@ export class StoryDetailComponent implements OnInit, OnChanges, OnDestroy {
         })
     }
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.ngReady.resolve(true)
+    }
     ngOnDestroy(): void {
         this.unsub()
     }

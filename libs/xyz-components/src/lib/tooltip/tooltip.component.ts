@@ -5,6 +5,7 @@ import { tooltipList } from '@xyz/data'
 import { Router } from '@angular/router';
 import { RouterEventService } from '@xyz/services';
 import { log } from 'x-utils-es';
+import { debounceTime } from 'rxjs/operators';
 
 interface XTooltipItem extends ITooltipItem {
   selected?: boolean;
@@ -48,7 +49,7 @@ export class TooltipComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.chipList.get('chip').valueChanges.subscribe((n: XTooltipItem) => {
+        this.chipList.get('chip').valueChanges.pipe(debounceTime(500)).subscribe((n: XTooltipItem) => {
 
           // toogle selection
           this.select( n.name)

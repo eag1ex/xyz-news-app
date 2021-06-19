@@ -1,6 +1,7 @@
 {
   "name": "xyx-news-app",
   "version": "1.0.1",
+  "license": "CC-BY-NC-ND",
   "scripts": {
     "ng": "ng",
     "start": "ng serve xyz --proxy-config ./proxy/xyz-local-proxy.json --disable-host-check --port 4444",

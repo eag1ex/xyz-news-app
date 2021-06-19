@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core'
 import paginate from 'jw-paginate'
+import { log } from 'x-utils-es'
 
 // source https://jasonwatmore.com/post/2020/10/03/angular-10-simple-pagination-example
 @Component({
@@ -11,7 +12,7 @@ export class PaginationComponent implements OnInit, OnChanges {
     constructor() {}
 
     @Input() items: Array<{ id: number; name: string }>
-    @Output() changePage = new EventEmitter<{currentPage: number}>(true)
+    @Output() changePage = new EventEmitter<{currentPage: number,lastPage:boolean}>(true)
     @Input() initialPage = 1
     @Input() pageSize = 0
     @Input() maxPages = 0
@@ -40,9 +41,10 @@ export class PaginationComponent implements OnInit, OnChanges {
         // get new pager object for specified page
         this.pager = paginate(this.items.length, page, this.pageSize, this.maxPages)
         // get new page of items from items array
-        const pageOfItems = this.items.slice(this.pager.startIndex, this.pager.endIndex + 1)
-
-        // call change page function in parent component
-        this.changePage.emit({currentPage: this.pager.currentPage})
+        // const pageOfItems = this.items.slice(this.pager.startIndex, this.pager.endIndex + 1)
+       let lastPage = this.pager.currentPage === this.pager.totalPages
+       this.changePage.emit({currentPage: this.pager.currentPage, ...(lastPage ? {lastPage:true}:{lastPage:false})})
+        
+       
     }
 }

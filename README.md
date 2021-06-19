@@ -1,6 +1,7 @@
 ## XYZ News App
 #### - [ Developed by Eaglex ](http://eaglex.net)
 
+
 #### Overview
 Angular MVC application, listing of `opensource` [hacker-news api](https://github.com/HackerNews/API), upgraded to own Rest/api for optimized requests. With 3 paginated news categories, each selected listing fetches metadata from external url. Design approach taken from `https://news.ycombinator.com/best`.   
 
@@ -24,16 +25,6 @@ Hosted on heroku node.js server (_server has timeout limit_, free dyno):
 
 
 
-#### Start
-- To run local version, first you need to install and start `xyz-news-server` app, so it can access the api via ./proxy setting. 
-- Open browser in `http://localhost:4444`
-
-```sh
-$/ npm start # initial start will compile angular
-$/ npm run build:prod # build production version to ./dist
-```
-
-
 #### Install
 The Application was build on `node@~12.0.0` and `npm@~6.9.0`, {engineStrict} is set, not sure if it will run below those versions.
 
@@ -42,8 +33,23 @@ $/ npm install
 ```
 
 
+#### Start
+- To run local version, first you need to install and start [xyz-news-server](https://bitbucket.org/eag1ex/xyz-news-server), so it can access the api via ./proxy setting. 
+
+- Open browser in `http://localhost:4444`
+
+```sh
+$/ npm start # initial start will compile angular
+$/ npm run build:prod # build production version to ./dist
+```
+
+
 #### Stack
 Typescript, MVC, Angular 11/ CLI, Bootstrap, angular.material, RX.js, SCSS, state/management, Rest/api, [ x-utils-es ](https://www.npmjs.com/package/x-utils-es)
+
+
+#### Server app
+For server app visit: `https://bitbucket.org/eag1ex/xyz-news-server`
 
 
 
@@ -91,6 +97,11 @@ Application structure
 
 ### Angular start guide info
 refer to > `./angular.readme.md`
+
+
+##### LICENSE
+* LICENCE: CC-BY-NC-ND
+* SOURCE: _(https://creativecommons.org/licenses/by-nc-nd/4.0/)_
 
 
 ##### Thank you
