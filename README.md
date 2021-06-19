@@ -6,17 +6,17 @@
 Angular MVC application, listing of `opensource` [hacker-news api](https://github.com/HackerNews/API), upgraded to own Rest/api for optimized requests. With 3 paginated news categories, each selected listing fetches metadata from external url. Design approach taken from `https://news.ycombinator.com/best`.   
 
 Application features:
-* Angular/cli project and architecture
-* proxy support for development
-* Lazy loading feature
-* Mobile friendly
-* Multi project support
-* Services, Libs, utils and Components modular separation
-* State management for caching http requests
-* RX.js implementation on all http requests
-* Configurable theme with access to bootstrap and material variables
-* Documented and linted code
-* Production ready
+- Angular/cli project and architecture
+- proxy support for development
+- Lazy loading feature
+- Mobile friendly
+- Multi project support
+- Services, Libs, utils and Components modular separation
+- State management for caching http requests
+- RX.js implementation on all http requests
+- Configurable theme with access to bootstrap and material variables
+- Documented and linted code
+- Production ready
 
 
 #### Live Demo
