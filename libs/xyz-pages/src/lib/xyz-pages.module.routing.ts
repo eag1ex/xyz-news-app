@@ -24,14 +24,3 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class BypartPagesRoutingModule {}
-
-
-// {
-//   path: 'work/:project',
-//   // component: SingleProjectComponent,
-//   loadChildren: './single-project/single-project.module#SingleProjectModule',
-//  //  resolve: {
-//  //   singleProduct: SingleProductResolver
-//  //   },
-//    runGuardsAndResolvers: 'paramsChange',
-// },
