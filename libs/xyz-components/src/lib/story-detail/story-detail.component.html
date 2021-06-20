@@ -1,9 +1,9 @@
 <div *ngIf="storyDetail" class="story-full-detail mt-1">
     <ul class="list-group pl-0 mb-0">
         <li *ngIf="storyDetail.text" class="list-group-item disabled" aria-disabled="true">
-            <div>
-                <div class="py-1">Description:</div>
-                <div [innerHTML]="storyDetail.text"></div>
+            <div class="desc-wrap">
+                <div class="py-1 caption">Description:</div>
+                <div class="desc-body" [innerHTML]="storyDetail.text"></div>
             </div>
         </li>
 

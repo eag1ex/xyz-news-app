@@ -1,9 +1,19 @@
 @import './mixin-bits/fonts';
+@import 'colors';
 
 :host {
     .story-full-detail {
         .small-detail {
             font-size: small;
+        }
+        .desc-wrap {
+            @include secondary-font();
+            font-size: 0.85em;
+            line-height: 1.3em;
+            .desc-body {
+                font-size: 0.85em;
+                color: $gray;
+            }
         }
         .outter-list-wrap {
             > * {

@@ -1,8 +1,18 @@
 /** 
  * base styling is declared from `libs\theme\scss\styles.scss`
  * here we can add overrites to current theme
- *  usually :host scopes has limited access to inner component elements
+ *  usually :host scopes have limited access to inner component elements
  * - NOTE all re-alignment adjustments from index.html screens are semi applied via _responsive.scss break-points and mixins
 */
 @import 'colors.scss';
 @import 'mixins.scss';
+
+lib-story-detail {
+    .desc-wrap {
+        .desc-body {
+            p {
+                color: $gray !important;
+            }
+        }
+    }
+}
