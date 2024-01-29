@@ -1,0 +1,89 @@
+{
+  "configVersion": 1,
+  "timestamp": 1706534252488,
+  "index": "https://eag1ex.github.io/xyz-news-app/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://eag1ex.github.io/xyz-news-app/5.47a33db15505be56a67e.js",
+        "https://eag1ex.github.io/xyz-news-app/6.77b3bbab0897b87770a3.js",
+        "https://eag1ex.github.io/xyz-news-app/7.cec6384194fbc0f96feb.js",
+        "https://eag1ex.github.io/xyz-news-app/favicon.ico",
+        "https://eag1ex.github.io/xyz-news-app/index.html",
+        "https://eag1ex.github.io/xyz-news-app/main.c411909587efc565a504.js",
+        "https://eag1ex.github.io/xyz-news-app/manifest.webmanifest",
+        "https://eag1ex.github.io/xyz-news-app/polyfills.55c31241edc543340d4e.js",
+        "https://eag1ex.github.io/xyz-news-app/project-xyz.a7fca5ac3d5f03c9d9dc.css",
+        "https://eag1ex.github.io/xyz-news-app/runtime.30504ea34d733a1bc036.js",
+        "https://eag1ex.github.io/xyz-news-app/theme-xyz.265f7f97f5e83b98cc38.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://eag1ex.github.io/xyz-news-app/assets/icons/icon-128x128.png",
+        "https://eag1ex.github.io/xyz-news-app/assets/icons/icon-144x144.png",
+        "https://eag1ex.github.io/xyz-news-app/assets/icons/icon-152x152.png",
+        "https://eag1ex.github.io/xyz-news-app/assets/icons/icon-192x192.png",
+        "https://eag1ex.github.io/xyz-news-app/assets/icons/icon-384x384.png",
+        "https://eag1ex.github.io/xyz-news-app/assets/icons/icon-512x512.png",
+        "https://eag1ex.github.io/xyz-news-app/assets/icons/icon-72x72.png",
+        "https://eag1ex.github.io/xyz-news-app/assets/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://eag1ex.github.io/xyz-news-app/5.47a33db15505be56a67e.js": "419b376f494d9c9cda566136b8bbbc323ddc7143",
+    "https://eag1ex.github.io/xyz-news-app/6.77b3bbab0897b87770a3.js": "cfe7d3728447ade0c8cbd57096146aea6c28ad6f",
+    "https://eag1ex.github.io/xyz-news-app/7.cec6384194fbc0f96feb.js": "71ae01fee0683d9ad62a6a9a6d9c9a7d43954995",
+    "https://eag1ex.github.io/xyz-news-app/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "https://eag1ex.github.io/xyz-news-app/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "https://eag1ex.github.io/xyz-news-app/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "https://eag1ex.github.io/xyz-news-app/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "https://eag1ex.github.io/xyz-news-app/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "https://eag1ex.github.io/xyz-news-app/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "https://eag1ex.github.io/xyz-news-app/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "https://eag1ex.github.io/xyz-news-app/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "https://eag1ex.github.io/xyz-news-app/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "https://eag1ex.github.io/xyz-news-app/index.html": "16d750ea7000abe4bf6a735647af3bc6774e3e27",
+    "https://eag1ex.github.io/xyz-news-app/main.c411909587efc565a504.js": "8d37be4faa2a015985f694265d8a6b6e26142336",
+    "https://eag1ex.github.io/xyz-news-app/manifest.webmanifest": "735f0e54a777282c7d4c357cce968bffdc3f445b",
+    "https://eag1ex.github.io/xyz-news-app/polyfills.55c31241edc543340d4e.js": "5f0600c5fe7526c400e53d3ccb790bb70d7d4290",
+    "https://eag1ex.github.io/xyz-news-app/project-xyz.a7fca5ac3d5f03c9d9dc.css": "38a37040260b307a4a805b10556f4ceccd762c94",
+    "https://eag1ex.github.io/xyz-news-app/runtime.30504ea34d733a1bc036.js": "6570cc0ee899223e9441dca03a73c4c082bdf00a",
+    "https://eag1ex.github.io/xyz-news-app/theme-xyz.265f7f97f5e83b98cc38.css": "d22cca72ebf74c309f5151388df3b333a58d4659"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
