@@ -1,66 +1,39 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "esModuleInterop":true,
-    
-    "allowSyntheticDefaultImports":true,
-    "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "declaration": false,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "es2015",
-    "module": "ESNext",
-    "lib": [
-      "es2018",
-      "dom"
-    ],
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "paths": {
-      "@xyz/scss":[
-        "libs/theme/scss"
-      ],
-      "@xyz/components": [
-        "libs/xyz-components/src/public-api.ts",
-      ],   
-      "@xyz/material": [
-        "libs/material/src/public-api.ts",
-      ],
-      "@xyz/xyz-pages": [
-        "libs/xyz-pages/src/public-api.ts"
-      ],
-      "@xyz/theme": [
-        "libs/theme/src/public-api.ts"
-      ],
-      "@xyz/interfaces": [
-        "libs/interfaces/src/public-api.ts"
-      ],
+    "compileOnSave": false,
+    "compilerOptions": {
+        "esModuleInterop": true,
 
-      "@xyz/utils": [
-        "libs/utils/src/public-api.ts"
-      ],
-      "@xyz/http": [
-        "libs/http/src/public-api.ts"
-      ],
-      "@xyz/data": [
-        "libs/data/src/public-api.ts"
-      ],
-      "@xyz/states": [
-        "libs/states/src/public-api.ts"
-      ],
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": "./",
+        "outDir": "./dist/out-tsc",
+        "sourceMap": true,
+        "declaration": false,
+        "downlevelIteration": true,
+        "experimentalDecorators": true,
+        "moduleResolution": "node",
+        "importHelpers": true,
+        "target": "es2015",
+        "module": "ESNext",
+        "lib": ["es2018", "dom"],
+        "typeRoots": ["node_modules/@types"],
+        "paths": {
+            "@xyz/scss": ["libs/theme/scss"],
+            "@xyz/components": ["libs/xyz-components/src/public-api.ts"],
+            "@xyz/material": ["libs/material/src/public-api.ts"],
+            "@xyz/xyz-pages": ["libs/xyz-pages/src/public-api.ts"],
+            "@xyz/theme": ["libs/theme/src/public-api.ts"],
+            "@xyz/interfaces": ["libs/interfaces/src/public-api.ts"],
 
-      "@xyz/services": [
-        "libs/services/src/public-api.ts"
-      ],
+            "@xyz/utils": ["libs/utils/src/public-api.ts"],
+            "@xyz/http": ["libs/http/src/public-api.ts"],
+            "@xyz/data": ["libs/data/src/public-api.ts"],
+            "@xyz/states": ["libs/states/src/public-api.ts"],
+
+            "@xyz/services": ["libs/services/src/public-api.ts"]
+        }
+    },
+    "angularCompilerOptions": {
+        "enableI18nLegacyMessageIdFormat": false
     }
-  },
-  "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false
-  }
 }

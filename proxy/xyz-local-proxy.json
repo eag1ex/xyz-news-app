@@ -1,8 +1,8 @@
 {
-    "/api": {
-      "target": "http://localhost:5000",
-      "secure": false,
-      "logLevel": "debug",
-      "changeOrigin": true
+    "/xyz-api": {
+        "target": "https://kind-gold-armadillo-sari.cyclic.app",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
     }
-  }
+}
