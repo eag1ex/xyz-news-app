@@ -20,21 +20,24 @@ Application features:
 -   Documented and linted code
 -   Production ready
 
-#### <span style="color:red">Latest updates</span>
+<br>
+
+### <span style="color:red">Latest updates</span>
 
 <i>Project demo is now available on github pages: </i>
-[ >> bucket-list <<](https://eag1ex.github.io/xyz-news-app/)
+**[ >> bucket-list <<](https://eag1ex.github.io/xyz-news-app/)**
 
 <img src="./screens/xyz-example-1.png" width="400" />
+<br>
 <br>
 
 #### Live Demo
 
-Hosted on heroku node.js server (_server has timeout limit_, free dyno):
-
--   `https://immense-ocean-43660.herokuapp.com/xyz`
-
-_Screens_
+```sh
+## OLD, INACTIVE
+# Hosted on heroku node.js server (_server has timeout limit_, free dyno):
+# https://immense-ocean-43660.herokuapp.com/xyz
+```
 
 #### Install
 
@@ -113,7 +116,7 @@ refer to > `./angular.readme.md`
 
 ##### LICENSE
 
--   LICENCE: CC-BY-NC-ND
+-   LICENSE: CC-BY-NC-ND
 -   SOURCE: _(https://creativecommons.org/licenses/by-nc-nd/4.0/)_
 
 ##### Thank you

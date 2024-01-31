@@ -10,7 +10,7 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "deploy:github": "npx angular-cli-ghpages --dir=build/xyz"
+        "deploy:github": "npx angular-cli-ghpages --dir=dist/xyz"
     },
     "engineStrict": true,
     "engines": {

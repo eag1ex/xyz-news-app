@@ -16,7 +16,7 @@ export class UserHttpService {
     private baseUrl: string
     sub$: Subject<string> = new Subject()
     constructor(private http: HttpClient, @Inject('ENVIRONMENT') protected ENVIRONMENT: Ienv) {
-        this.baseUrl = this.ENVIRONMENT.URI ? this.ENVIRONMENT.URI + `/${this.ENVIRONMENT.apiBaseUrl}` : this.ENVIRONMENT.apiBaseUrl
+        this.baseUrl = this.ENVIRONMENT.URI ? this.ENVIRONMENT.URI + `${this.ENVIRONMENT.apiBaseUrl}` : this.ENVIRONMENT.apiBaseUrl
     }
 
     user(id: string): Observable<IUser> {

@@ -1,4 +1,4 @@
 {
-  "public": "./dist/buypart",
-  "rewrites": [{ "source": "**", "destination": "/index.html" }]
+    "public": "./dist/xyz",
+    "rewrites": [{ "source": "**", "destination": "/index.html" }]
 }

@@ -18,7 +18,7 @@ export class MetadataHttpService {
     private baseUrl: string
     sub$: Subject<string> = new Subject()
     constructor(private states: XYXstates, private http: HttpClient, @Inject('ENVIRONMENT') protected ENVIRONMENT: Ienv) {
-        this.baseUrl = this.ENVIRONMENT.URI ? this.ENVIRONMENT.URI + `/${this.ENVIRONMENT.apiBaseUrl}` : this.ENVIRONMENT.apiBaseUrl
+        this.baseUrl = this.ENVIRONMENT.URI ? this.ENVIRONMENT.URI + `${this.ENVIRONMENT.apiBaseUrl}` : this.ENVIRONMENT.apiBaseUrl
     }
 
     private meta(url: string): Observable<IMetaResp> {
