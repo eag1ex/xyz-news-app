@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1706534252488,
+  "timestamp": 1719471869026,
   "index": "https://eag1ex.github.io/xyz-news-app/index.html",
   "assetGroups": [
     {
@@ -16,7 +16,7 @@
         "https://eag1ex.github.io/xyz-news-app/7.cec6384194fbc0f96feb.js",
         "https://eag1ex.github.io/xyz-news-app/favicon.ico",
         "https://eag1ex.github.io/xyz-news-app/index.html",
-        "https://eag1ex.github.io/xyz-news-app/main.c411909587efc565a504.js",
+        "https://eag1ex.github.io/xyz-news-app/main.bdebbcee90525fd04c2c.js",
         "https://eag1ex.github.io/xyz-news-app/manifest.webmanifest",
         "https://eag1ex.github.io/xyz-news-app/polyfills.55c31241edc543340d4e.js",
         "https://eag1ex.github.io/xyz-news-app/project-xyz.a7fca5ac3d5f03c9d9dc.css",
@@ -59,8 +59,8 @@
     "https://eag1ex.github.io/xyz-news-app/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "https://eag1ex.github.io/xyz-news-app/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "https://eag1ex.github.io/xyz-news-app/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://eag1ex.github.io/xyz-news-app/index.html": "16d750ea7000abe4bf6a735647af3bc6774e3e27",
-    "https://eag1ex.github.io/xyz-news-app/main.c411909587efc565a504.js": "8d37be4faa2a015985f694265d8a6b6e26142336",
+    "https://eag1ex.github.io/xyz-news-app/index.html": "bff87e6748453bf924d59b3a345b97eba7a84bfe",
+    "https://eag1ex.github.io/xyz-news-app/main.bdebbcee90525fd04c2c.js": "13f9df8465e5176d94c93316565084c4d4ed6946",
     "https://eag1ex.github.io/xyz-news-app/manifest.webmanifest": "735f0e54a777282c7d4c357cce968bffdc3f445b",
     "https://eag1ex.github.io/xyz-news-app/polyfills.55c31241edc543340d4e.js": "5f0600c5fe7526c400e53d3ccb790bb70d7d4290",
     "https://eag1ex.github.io/xyz-news-app/project-xyz.a7fca5ac3d5f03c9d9dc.css": "38a37040260b307a4a805b10556f4ceccd762c94",
