@@ -120,3 +120,9 @@ refer to > `./angular.readme.md`
 -   SOURCE: _(https://creativecommons.org/licenses/by-nc-nd/4.0/)_
 
 ##### Thank you
+
+
+
+
+### Logs
+- 27/Jun/24 migrated cyclic.sh (EOL) to another koyeb.app

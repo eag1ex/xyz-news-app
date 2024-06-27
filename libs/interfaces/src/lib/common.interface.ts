@@ -7,7 +7,7 @@ export interface Ienv {
     /** full url path to remote server, to test production build */
     URI?: string
     apiBaseUrl: string
-    /** api auth code to allow access to cyclic */
+    /** api auth code to allow access to koyeb.app */
     functionCode?: string
     adalConfigs: {
         tenant?: string
